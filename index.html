@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pagina no oficial de los scps</title>
+<title>Pagina Web</title>
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
-<body>
-	<h1>A.C.M.U.P.T</h1>
+<body text="white">
+<h1 >Mi pagina web</h1>
+<P >ATTE: Christopher Dan Quezada Ramirez</P><br/><br/><br/>
+<h1>PRATICA DE DOS NUMEROS</h1>
+<form name="registro">
+<table>
+<tr>
+<tr><td>Numero:</td>
+<td><input type="text" name="dato1" id="dato1"></td></tr>
+<td>Numero:</td>
+<td><input type="text" name="dato2" id="dato2"></td></tr>
+</tr>
+<td>OPERACION: </td>
+<td><input type="button" name="Enviar" value="+" onclick="sumadedatos()">
+<input type="button" name="Enviar" value="*" onclick="multiplicaciondatos()">
+<input type="button" name="Enviar" value="-" onclick="restadedatos()">
+<input type="button" name="Enviar" value="%" onclick="diviciondedatos()"></td>
+
+</table>
+<table>
+<tr>
+<td><strong>RESULTADO</td>
+<td><input type="text" name="hetero" id="hetero"></td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+function sumadedatos(){
+var d1=parseInt(document.getElementById('dato1').value);
+var d2=parseInt(document.getElementById('dato2').value);
+document.registro.hetero.value=d1+d2;
+}
+</script>
+<script type="text/javascript">
+function multiplicaciondatos(){
+var d1=parseInt(document.getElementById('dato1').value);
+var d2=parseInt(document.getElementById('dato2').value);
+document.registro.hetero.value=d1*d2;
+}
+</script>
+<script type="text/javascript">
+function restadedatos(){
+var d1=parseInt(document.getElementById('dato1').value);
+var d2=parseInt(document.getElementById('dato2').value);
+document.registro.hetero.value=d1-d2;
+}
+</script>
+<script type="text/javascript">
+function diviciondedatos(){
+var d1=parseInt(document.getElementById('dato1').value);
+var d2=parseInt(document.getElementById('dato2').value);
+document.registro.hetero.value=d1%d2;
+}
+</script>
 </body>
 </html>
+
+
