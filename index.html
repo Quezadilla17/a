@@ -1,63 +1,52 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Pagina Web</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+	<title>Christopher Dan</title>
 </head>
-<body text="white">
-<h1 >Mi pagina web</h1>
-<P >ATTE: Christopher Dan Quezada Ramirez</P><br/><br/><br/>
-<h1>PRATICA DE DOS NUMEROS</h1>
-<form name="registro">
-<table>
-<tr>
-<tr><td>Numero:</td>
-<td><input type="text" name="dato1" id="dato1"></td></tr>
-<td>Numero:</td>
-<td><input type="text" name="dato2" id="dato2"></td></tr>
-</tr>
-<td>OPERACION: </td>
-<td><input type="button" name="Enviar" value="+" onclick="sumadedatos()">
-<input type="button" name="Enviar" value="*" onclick="multiplicaciondatos()">
-<input type="button" name="Enviar" value="-" onclick="restadedatos()">
-<input type="button" name="Enviar" value="%" onclick="diviciondedatos()"></td>
-
-</table>
-<table>
-<tr>
-<td><strong>RESULTADO</td>
-<td><input type="text" name="hetero" id="hetero"></td>
-</tr>
-</table>
+<body>
+	<h1>Trabajando con un JSON(Javascript Oriented Object)</h1>
+<h3>Agregar Heroes</h3>
+<form action="index.php" method="post">
+	<table>
+		<tr><td>id:</td>
+			<td><input type="text" name="id"></td></tr>
+			<tr><td>Nombre:</td>
+			<td><input type="text" name="nombre"></td></tr>
+			<tr><td>Edad:</td>
+			<td><input type="text" name="edad"></td></tr>
+			<tr><td>Identidad Secreta:</td>
+			<td><input type="text" name="identidadsecreta"></td></tr>
+			<tr><td>Poderes:</td>
+			<td><input type="text" name="poderes"></td></tr>
+			<tr><td><input type="submit" name="submit" value="Agregar"></td></tr>
+	</table>
 </form>
-<script type="text/javascript">
-function sumadedatos(){
-var d1=parseInt(document.getElementById('dato1').value);
-var d2=parseInt(document.getElementById('dato2').value);
-document.registro.hetero.value=d1+d2;
-}
-</script>
-<script type="text/javascript">
-function multiplicaciondatos(){
-var d1=parseInt(document.getElementById('dato1').value);
-var d2=parseInt(document.getElementById('dato2').value);
-document.registro.hetero.value=d1*d2;
-}
-</script>
-<script type="text/javascript">
-function restadedatos(){
-var d1=parseInt(document.getElementById('dato1').value);
-var d2=parseInt(document.getElementById('dato2').value);
-document.registro.hetero.value=d1-d2;
-}
-</script>
-<script type="text/javascript">
-function diviciondedatos(){
-var d1=parseInt(document.getElementById('dato1').value);
-var d2=parseInt(document.getElementById('dato2').value);
-document.registro.hetero.value=d1%d2;
-}
-</script>
+	<table id="table">
+		<tr>
+			<th>id</th>
+			<th>Nombre</th>
+			<th>Edad</th>
+			<th>Identidad Secreta</th>
+			<th>Poderes</th>
+		</tr>
+		<script>
+			$(document).ready(function(){
+				$.getJSON("index.json", function(data){
+					var heroe='';
+					$.each(data,function(key, value){
+						heroe+='<tr>';
+						heroe+='<td>'+value.id+'</td>';
+						heroe+='<td>'+value.nombre+'</td>';
+						heroe+='<td>'+value.edad+'</td>';
+						heroe+='<td>'+value.identidadsecreta+'</td>';
+						heroe+='<td>'+value.poderes+'</td>';
+					});
+					$('#table').append(heroe);
+				});
+			});
+		</script>
+	</table>
 </body>
 </html>
-
